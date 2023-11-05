@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Editar ingrediente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/styles.css" />
+</head>
+<body>
+
+    <header class="bg-dark d-flex justify-content-between align-items-center pt-1 pb-1 ps-3 pe-3">
+        <nav class="navbar">
+            <h2 class="display-6 text-white m-0 fuente-cursiva">EnsaladasCiencias</a>
+        </nav>
+        <p class="text-white m-0">Administrador</p>
+    </header>
+
+    <main class="pt-4 pb-4">
+        <h1 class="text-center">Editar ingrediente</h1>
+
+        <form class="mx-auto p-5 w-50" method="post" action="validacionFormServlet">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="tipo_producto" class="form-label">Tipo producto</label><br/>
+                <select name="tipo_producto" id="tipo_producto">
+                    <option value="">Escoge el tipo del producto</option>
+                    <option value="solido">Sólido</option>
+                    <option value="liquido">Líquido</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad </label>
+                <input type="number" class="form-control" id="cantidad" min="0" name="cantidad">
+            </div>
+            <div class="mb-3">
+                <label for="medida" class="form-label">Medida</label><br/>
+                <select name="medida" id="medida">
+                    <option value="">Escoge la medida del producto</option>
+                    <option value="kilogramos">kg</option>
+                    <option value="gramos">gr</option>
+                    <option value="libras">lb</option>
+                    <option value="piezas">piezas</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="costo" class="form-label">Costo</label>
+                <input name="costo" type="number" class="form-control" id="costo" min="0">
+            </div>
+            <div class="mb-3">
+                <label for="fechaAdquisicion" class="form-label">Fecha de Adquisión</label>
+                <input name="fechaAdquisicion" type="date" class="form-control" id="fechaAdquisicion" value="">
+            </div>
+            <div class="mb-3">
+                <label for="fechaCaducidad" class="form-label">Fecha de Caducidad</label>
+                <input name="fechaCaducidad" type="date" class="form-control" id="fechaCaducidad" value="">
+            </div>
+            <div class="mb-3">
+                <label for="nombreProveedor" class="form-label">Nombre del proveedor</label>
+                <input type="text" class="form-control" id="nombreProveedor" value="" name="nombreProveedor">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea name="descripcion" class="form-control textarea-form" id="descripcion" cols="100" rows="10"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="comentarios" class="form-label">Comentarios</label>
+                <textarea name="comentarios" class="form-control textarea-form" id="comentarios" cols="100" rows="10"></textarea>
+            </div>
+
+            <div class="d-flex justify-content-end mt-5">
+                <button type="submit" class="btn btn-primary">Aceptar cambios</button>
+            </div>
+        </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
