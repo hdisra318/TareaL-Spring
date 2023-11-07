@@ -1,6 +1,8 @@
 package fciencias.unam.inventario.demo.entity;
 
 import lombok.Data;
+import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
 
 @Data
 @Entity
@@ -12,22 +14,19 @@ public class Usuario {
     private long id_usuario;
 
     /** Nombre del usuario */
-    @NotNull
-    @Column(name = "nombre_usuario", length = 50)
+    @NotNull(message = "El nombre del usuario es obligatorio")
     public String nombre;
 
     /** Apellido paterno */
-    @NotNull
-    @Column(name = "a_paterno", length = 50)
+    @NotNull(message = "El apellido paterno del usuario es obligatorio")
     public String aPaterno;
 
     /** Apellido materno */
-    @NotNull
-    @Column(name = "a_materno", length = 50)
+    @NotNull(message = "El apellido materno del usuario es obligatorio")
     public String aMaterno;
 
     /** Saldo del usuario */
-    @NotNull
+    @NotNull(message = "El saldo del usuario es obligatorio")
     public double saldo;
 
 }

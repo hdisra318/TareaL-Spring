@@ -1,30 +1,19 @@
 package fciencias.unam.inventario.demo.entity;
 
-import lombok.Data;
-
-@Data
-@Entity
-public class TipoProducto {
-
-    /** Id del tipo de producto */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idProducto;
-
-    /** Nombre del producto */
-    @NotNull
-    @Column(name = "nombre_producto", length = 50)
-    public String nombreProducto;
+public enum TipoProducto {
+    SOLIDO("Perecedero", "Solido"),
+    LIQUIDO("Perecedero", "Liquido");
 
     /** Categoria a la que pertenece el producto */
-    @NotNull
-    @Column(name = "categoria", length = 50)
-    public String categoria;
+    public final String categoria;
 
-    /** Stock del producto */
-    @NotNull
-    public int stock;
+    /** Tipo de producto */
+    public final String tipo;
 
 
+    private TipoProducto(String categoria, String tipo) {
+        this.categoria = categoria;
+        this.tipo = tipo;
+    }
 
 }

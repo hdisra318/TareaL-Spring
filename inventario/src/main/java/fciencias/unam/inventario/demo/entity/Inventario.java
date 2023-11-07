@@ -1,9 +1,14 @@
 package fciencias.unam.inventario.demo.entity;
 
 import lombok.Data;
+import java.util.List;
 
 @Data
-@Entity
 public class Inventario {
     
+    /** Id del inventario */
+    private long id;
+
+    /** Lista de productos */
+    private List<Producto> productos;
 }
