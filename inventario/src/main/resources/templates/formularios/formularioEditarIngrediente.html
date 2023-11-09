@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{themes/sbadmin/index}" >
 <head>
     <meta charset="utf-8">
     <title>Editar ingrediente</title>
@@ -15,13 +18,16 @@
         <p class="text-white m-0">Administrador</p>
     </header>
 
+    <div layout:fragment="main-header">
     <main class="pt-4 pb-4">
         <h1 class="text-center">Editar ingrediente</h1>
+    </div>
 
-        <form class="mx-auto p-5 w-50" method="post" action="validacionFormServlet">
+        <form th:action="@{/producto/save}" method="POST" th:object="${producto}" class="mx-auto p-5 w-50" action="validacionFormServlet">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
+                <input type="text" th:field="*{nombreProducto}" th:value="${producto.nombreProducto}"
+                 class="form-control" id="nombre" name="nombre">
             </div>
             <div class="mb-3">
                 <label for="tipo_producto" class="form-label">Tipo producto</label><br/>
@@ -33,7 +39,8 @@
             </div>
             <div class="mb-3">
                 <label for="cantidad" class="form-label">Cantidad </label>
-                <input type="number" class="form-control" id="cantidad" min="0" name="cantidad">
+                <input type="number" th:field="*{stock}" th:value="${producto.stock}"
+                class="form-control" id="cantidad" min="0" name="cantidad">
             </div>
             <div class="mb-3">
                 <label for="medida" class="form-label">Medida</label><br/>
@@ -47,19 +54,23 @@
             </div>
             <div class="mb-3">
                 <label for="costo" class="form-label">Costo</label>
-                <input name="costo" type="number" class="form-control" id="costo" min="0">
+                <input name="costo" type="number" th:field="*{costo}" th:value="${producto.costo}"
+                 class="form-control" id="costo" min="0">
             </div>
             <div class="mb-3">
                 <label for="fechaAdquisicion" class="form-label">Fecha de Adquisión</label>
-                <input name="fechaAdquisicion" type="date" class="form-control" id="fechaAdquisicion" value="">
+                <input name="fechaAdquisicion" type="date" th:field="*{fechaAdquisicion}" th:value="${producto.fechaAdquisicion}"
+                 class="form-control" id="fechaAdquisicion" value="">
             </div>
             <div class="mb-3">
                 <label for="fechaCaducidad" class="form-label">Fecha de Caducidad</label>
-                <input name="fechaCaducidad" type="date" class="form-control" id="fechaCaducidad" value="">
+                <input name="fechaCaducidad" type="date" th:field="*{fechaCaducidad}" th:value="${producto.fechaCaducidad}"
+                class="form-control" id="fechaCaducidad" value="">
             </div>
             <div class="mb-3">
                 <label for="nombreProveedor" class="form-label">Nombre del proveedor</label>
-                <input type="text" class="form-control" id="nombreProveedor" value="" name="nombreProveedor">
+                <input type="text" th:field="*{nombreProveedor}" th:value="${producto.nombreProveedor}"
+                class="form-control" id="nombreProveedor" value="" name="nombreProveedor">
             </div>
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>

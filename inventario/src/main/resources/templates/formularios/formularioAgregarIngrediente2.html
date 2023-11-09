@@ -25,24 +25,36 @@
     </div>   
     <div layout:fragment="main-content">
 
-        <form th:action="@{/inventario/save}" method="POST" class="mx-auto p-5 w-50">
+        <form th:action="@{/producto/save}" method="POST" th:object="${producto}" class="mx-auto p-5 w-50" >
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" required>
+                <input type="text" th:field="*{nombreProducto}" th:value="${producto.nombreProducto}"
+                 class="form-control" id="nombre" required>
+
             </div>
             <div class="mb-3">
                 <label for="cantidad" class="form-label">Cantidad (kg)</label>
-                <input type="number" class="form-control" id="cantidad" min="0" required>
+                <input type="number" th:field="*{stock}" th:value="${producto.stock}"
+                class="form-control" id="cantidad" min="0" required>
             </div>
             <div class="mb-3">
                 <label for="costo" class="form-label">Costo</label>
-                <input type="number" class="form-control" id="costo" min="0" required>
+                <input type="number" th:field="*{costo}" th:value="${producto.costo}"
+                class="form-control" id="costo" min="0" required>
             </div>
             <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de Adquisión</label>
-                <input type="date" class="form-control" id="fecha" value="2023-10-05" required>
+                <label for="fechaAdquisicion" class="form-label">Fecha de Adquisión</label>
+                <input type="date" th:field="*{fechaAdquisicion}" th:value="${producto.fechaAdquisicion}"
+                class="form-control" id="fechaAdquisicion" value="2023-10-05" required>
             </div>
             <div class="d-flex justify-content-end mt-5">
+
+            <div class="mb-3">
+                    <label for="fechaCaducidad" class="form-label">Fecha de Caducidad</label>
+                    <input type="date" th:field="*{fechaCaducidad}" th:value="${producto.fechaCaducidad}"
+                     class="form-control" id="fechaCaducidad" value="2023-10-05" required>
+            </div>
+            <div class="d-flex justify-content-end mt-5">    
                 <!--<a class="btn btn-primary ps-4 pe-4" href="../inventario/inventario.html">Agregar</a> -->
                 <a class="btn btn-primary ps-4 pe-4" th:href="@{/inventario/}">Agregar</a>
             </div>
