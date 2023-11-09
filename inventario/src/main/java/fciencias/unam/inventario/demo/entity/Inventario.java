@@ -11,4 +11,14 @@ public class Inventario {
 
     /** Lista de productos */
     private List<Producto> productos;
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+
 }
