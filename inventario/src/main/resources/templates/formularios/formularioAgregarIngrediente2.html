@@ -46,8 +46,31 @@
                 <!--<a class="btn btn-primary ps-4 pe-4" href="../inventario/inventario.html">Agregar</a> -->
                 <a class="btn btn-primary ps-4 pe-4" th:href="@{/inventario/}">Agregar</a>
             </div>
-         
 
+
+            <!-- Debo cambiar esta parte-->
+            <div class="row" th:object="${semestre.periodo}">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="fechaInicio">Fecha de Inicio</label>
+                        <input type="date" id="fechaInicio" name="fechaInicio" class="form-control"
+                               th:field="*{fechaInicio}"
+                               th:value="${semestre.periodo.fechaInicio}">
+                        <span class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}">Name Error</span>
+                    </div>
+                </div>
+    
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="fechaTermino">Fecha de Término</label>
+                        <input type="date" id="fechaTermino" name="fechaTermino" class="form-control"
+                               th:field="*{fechaTermino}"
+                               th:value="${semestre.periodo.fechaTermino}"
+                        >
+                        <span class="text-danger" th:if="${#fields.hasErrors('fechaTermino')}" th:errors="*{fechaTermino}">Name Error</span>
+                        <span class="text-danger row" th:if="${#fields.hasGlobalErrors()}" th:errors="${semestre.periodo}">Name Error</span>
+                    </div>
+                </div>
         </form>
     </main>
 
