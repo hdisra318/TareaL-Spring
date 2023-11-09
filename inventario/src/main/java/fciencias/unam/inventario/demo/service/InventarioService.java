@@ -19,8 +19,7 @@ public class InventarioService {
 
 
     public List<Producto> getProductos() {
-        //return repository.findAll();
-        return null;
+        return repository.findAll();
     }
 
     public Inventario saveProducto(Inventario inventario) {
