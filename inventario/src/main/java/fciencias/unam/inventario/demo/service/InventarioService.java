@@ -23,7 +23,9 @@ public class InventarioService {
     }
 
     public Inventario saveProducto(Inventario inventario) {
-        return (Inventario) repository.saveAll(inventario.getProductos());
+        //return repository.save(inventario);
+        return null;
+         //return (Inventario) repository.saveAll(inventario.getProductos());
        // return (Inventario) repository.saveAll(inventario);
        // return (Inventario) repository.save(inventario);
     }

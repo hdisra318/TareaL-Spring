@@ -13,6 +13,10 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_usuario;
 
+    /** CURP del usuario */
+    @NotNull(message = "El CURP del usuario es obligatorio")
+    public String curp;
+
     /** Nombre del usuario */
     @NotNull(message = "El nombre del usuario es obligatorio")
     public String nombre;

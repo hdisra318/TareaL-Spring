@@ -8,4 +8,4 @@ services:
     environment:
       - POSTGRES_PASSWORD=main
       - POSTGRES_USER=main
-      - POSTGRES_DB=demo
+      - POSTGRES_DB=TareaLSpring
