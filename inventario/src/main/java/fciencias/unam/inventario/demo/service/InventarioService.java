@@ -23,7 +23,8 @@ public class InventarioService {
     }
 
     public Inventario saveProducto(Inventario inventario) {
-        return repository.save(inventario);
+        //return repository.save(inventario);
+        return null;
     }
 
 }
