@@ -57,5 +57,10 @@ public class Producto {
 
     /** Comentarios del producto */
     private String comentarios;
+
+
+    public String getNombreProducto(){
+        return this.nombreProducto;
+    }
     
 }

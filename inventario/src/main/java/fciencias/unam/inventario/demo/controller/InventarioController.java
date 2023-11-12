@@ -23,10 +23,11 @@ public class InventarioController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("productos", service.getProductos());
+        //model.addAttribute("productos", service.getProductos());
 
-        return "inventario/index";
+        return "inventario/inventario";
     }
+
 
     @GetMapping("/create")
     public String create() {

@@ -1,6 +1,5 @@
 .fuente-cursiva {
     font-family: 'Brush Script MT',cursive;
-    
 }
 
 thead {
@@ -14,6 +13,12 @@ h1{
 .primera-receta,
 .segunda-receta {
     width: 50%;
+    transition: transform .3s;
+}
+
+.primera-receta:hover,
+.segunda-receta:hover {
+    transform: scale(1.1);
 }
 
 .primera-receta{
@@ -134,4 +139,29 @@ input[type="file"]::file-selector-button {
 .textarea-form {
     max-width: 100%;
     resize: none;
+}
+
+.boton-menu {
+    padding: 50px;
+    transition: transform .3s;
+}
+
+.boton-menu:hover {
+    transform: scale(1.1);
+}
+
+.boton-menu a {
+    font-size: 20px;
+}
+
+.boton-menu-1 {
+    background-color: #2B50AA;
+}
+
+.boton-menu-2 {
+    background-color: #2e8b57;
+}
+
+.boton-menu-3 {
+    background-color: #c7ae46;
 }
