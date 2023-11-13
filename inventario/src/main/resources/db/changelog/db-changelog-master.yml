@@ -1,7 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: INVENTARIO/master.yml
-      relativeToChangelogFile: true
-  - include:
-      file: USUARIO/master.yml
-      relativeToChangelogFile: true
