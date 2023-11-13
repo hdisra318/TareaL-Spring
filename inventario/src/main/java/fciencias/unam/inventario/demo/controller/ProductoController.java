@@ -1,29 +1,25 @@
 package fciencias.unam.inventario.demo.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import fciencias.unam.inventario.demo.entity.Producto;
 import fciencias.unam.inventario.demo.entity.TipoProducto;
 import fciencias.unam.inventario.demo.repository.ProductoRepository;
-import fciencias.unam.inventario.demo.service.ProductoService;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/producto")
 public class ProductoController {
 
     @Autowired
-    private ProductoService service;
-
     private ProductoRepository repo;
-
-    private final Logger logger = LogManager.getLogger(ProductoController.class);
     
     @ModelAttribute
     public void init(Model model) {
@@ -32,14 +28,26 @@ public class ProductoController {
         model.addAttribute("producto", producto);
     }
 
-    @GetMapping("/")
-    public String index() {
+    // CREATE
+    @GetMapping("/formularioAgregarIngrediente")
+    public String agregarIngrediente(Model model) {
+        model.addAttribute("producto", new Producto());
         return "producto/formularioAgregarIngrediente";
     }
 
-    @GetMapping("/formularioAgregarIngrediente")
-    public String agregarIngrediente() {
-        return "producto/formularioAgregarIngrediente";
+    @PostMapping("/formularioAgregarIngrediente")
+    public String procesandoAgregarIngrediente(@Valid @ModelAttribute Producto ingrediente, BindingResult result) {
+
+        System.out.println(ingrediente);
+
+        if (result.hasErrors()) {
+            System.out.println(result.getAllErrors());
+            return "producto/formularioAgregarIngrediente";
+        }
+
+        repo.save(ingrediente);
+        return "redirect:/inventario/";
+        
     }
 
     @GetMapping("/formularioEditarIngrediente")

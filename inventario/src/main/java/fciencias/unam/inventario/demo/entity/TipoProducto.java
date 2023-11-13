@@ -7,9 +7,11 @@ public enum TipoProducto {
     /** Tipo de producto */
     public final String tipo;
 
-
     private TipoProducto(String tipo) {
         this.tipo = tipo;
     }
 
+    public String __String() {
+        return this.tipo;
+    }
 }

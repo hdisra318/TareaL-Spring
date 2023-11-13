@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="es"
        xmlns:th="http://www.thymeleaf.org"
-       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-       layout:decorate="~{themes/sbadmin/index}"
->
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="utf-8">
     <title>Agregar ingrediente</title>
@@ -25,87 +23,81 @@
     </div>   
     <div layout:fragment="main-content">
 
-        <form th:action="@{/inventario/save}" method="POST" class="mx-auto p-5 w-50">
+        <form th:action="@{/producto/formularioAgregarIngrediente}" th:object="${producto}" method="POST" class="mx-auto p-5 w-50">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" required
-                th:field="*{nombreProducto}" th:value="${producto.nombreProducto}">
+                th:field="*{nombreProducto}">
                 
             </div>
             <div class="mb-3">
                 <label for="tipo_producto" class="form-label">Tipo producto</label><br/>
-                <select name="tipo_producto" id="tipo_producto">
+                <select required name="tipo_producto" id="tipo_producto" th:field="*{tipoProducto}">
                     <option value="">Escoge el tipo del producto</option>
-                    <option value="solido">Sólido</option>
-                    <option value="liquido">Líquido</option>
+                    <option value="solido" th:text="solido"></option>
+                    <option value="liquido" th:text="liquido"></option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="cantidad" class="form-label">Cantidad </label>
-                <input type="number" th:field="*{stock}" th:value="${producto.stock}"
-                class="form-control" id="cantidad" min="0" name="cantidad">
+                <label for="stock" class="form-label">Cantidad </label>
+                <input required type="number" th:field="*{stock}"
+                class="form-control" id="stock" min="0" name="stock">
             </div>
             <div class="mb-3">
                 <label for="medida" class="form-label">Medida</label><br/>
-                <select name="medida" id="medida">
+                <select required name="medida" id="medida" th:field="*{medida}">
                     <option value="">Escoge la medida del producto</option>
-                    <option th:each="medida: ${medidasProducto}"
-                    th:text="${medida.etiqueta}"
-                    th:value="kilogramos"
-                    th:selected="${medida.clave == producto.medida?.clave}">kg</option>
-                    <option th:each="medida: ${medidasProducto}"
-                    th:text="${medida.etiqueta}"
-                    th:value="gramos"
-                    th:selected="${medida.clave == producto.medida?.clave}">gr</option>
-                    <option th:each="medida: ${medidasProducto}"
-                    th:text="${medida.etiqueta}"
-                    th:value="libras"
-                    th:selected="${medida.clave == producto.medida?.clave}">lb</option>
-                    <option th:each="medida: ${medidasProducto}"
-                    th:text="${medida.etiqueta}"
-                    th:value="piezas"
-                    th:selected="${medida.clave == producto.medida?.clave}">piezas</option>
+                    <option
+                    value="kg"
+                    th:text="kilogramos"
+                    ></option>
+                    <option
+                    value="gr"
+                    th:text="gramos"
+                    >gr</option>
+                    <option
+                    value="lb"
+                    th:text="libras"
+                    >lb</option>
+                    <option
+                    value="piezas"
+                    th:text="piezas"
+                    ></option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="costo" class="form-label">Costo</label>
                 <input type="number" class="form-control" id="costo" min="0" required
-                  th:field="*{costo}"
-                  th:value="${producto.fechaCaducidad}">
+                  th:field="*{costo}">
             </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha de Adquisión</label>
-                <input type="date" class="form-control" id="fecha" value="2023-10-05" required
-                th:field="*{fechaAdquisicion}"
-                th:value="${producto.fechaAdquisicion}">
+                <input type="date" class="form-control" id="fecha" value="2023-11-13" required
+                th:field="*{fechaAdquision}">
             </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha de Caducidad</label>
-                <input type="date" class="form-control" id="fecha" value="2023-10-05" required
-                th:field="*{fechaCaducidad}"
-                th:value="${producto.fechaCaducidad}">
+                <input type="date" class="form-control" id="fecha" value="2023-11-13" required
+                th:field="*{fechaCaducidad}">
             </div>
             <div class="mb-3">
                 <label for="nombreProveedor" class="form-label">Nombre del proveedor</label>
-                <input type="text" th:field="*{nombreProveedor}" th:value="${producto.nombreProveedor}"
+                <input required type="text" th:field="*{nombreProveedor}"
                 class="form-control" id="nombreProveedor" value="" name="nombreProveedor">
             </div>
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <textarea name="descripcion" class="form-control textarea-form" id="descripcion" cols="100" rows="10"></textarea
-                 th:field="*{descripcion}" 
-                 th:value="${producto.descripcion}">
+                <textarea required name="descripcion" class="form-control textarea-form" id="descripcion" cols="100" rows="10"
+                th:field="*{descripcion}"></textarea>
             </div>
             <div class="mb-3">
                 <label for="comentarios" class="form-label">Comentarios</label>
-                <textarea name="comentarios" class="form-control textarea-form" id="comentarios" cols="100" rows="10"></textarea
-                 th:field="*{comentarios}"
-                 th:value="${producto.comentarios}"   >
+                <textarea name="comentarios" class="form-control textarea-form" id="comentarios" cols="100" rows="10"
+                th:field="*{comentarios}"></textarea>
             </div>
             
             <div class="d-flex justify-content-end mt-5">
-                <!--<a class="btn btn-primary ps-4 pe-4" href="../inventario/inventario.html">Agregar</a> -->
-                <a class="btn btn-primary ps-4 pe-4" th:href="@{/inventario/inventario}">Agregar</a>
+                <button type="submit" class="btn btn-success">Registrar</button>
             </div>
 
         </form>

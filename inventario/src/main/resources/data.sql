@@ -9,10 +9,11 @@ CREATE TABLE IF NOT EXISTS Usuario(
 
 CREATE TABLE IF NOT EXISTS Producto
 (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+    id_producto SERIAL PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
     tipo_producto VARCHAR(100) NOT NULL,
     stock INTEGER NOT NULL,
+    medida VARCHAR(10) NOT NULL,
     costo FLOAT NOT NULL,
     fecha_adquision DATE NOT NULL,
     fecha_caducidad DATE NOT NULL,
