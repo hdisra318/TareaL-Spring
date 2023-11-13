@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="es"
        xmlns:th="http://www.thymeleaf.org"
-       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-       layout:decorate="~{themes/sbadmin/index}"
->
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="utf-8">
     <title>Agregar ingrediente</title>
@@ -29,8 +27,8 @@
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" required
-                th:field="*{nombreProducto}" th:value="${producto.nombreProducto}">
-                
+                th:field="*{nombreProducto}">
+                <span class="text-danger" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}">El nombre del ingrediente no puede estar vacío</span>
             </div>
             <div class="mb-3">
                 <label for="tipo_producto" class="form-label">Tipo producto</label><br/>
