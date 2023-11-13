@@ -71,7 +71,7 @@ public class InventarioController {
     }
 
     @PostMapping("/formularioEditarIngrediente/{id}")
-    public String procesandoEditarUsuario(@PathVariable long id, @Valid @ModelAttribute Producto ingrediente, BindingResult result) {
+    public String procesandoEditarIngrediente(@PathVariable long id, @Valid @ModelAttribute Producto ingrediente, BindingResult result) {
 
         System.out.println(ingrediente);
         if (result.hasErrors()) {
@@ -93,4 +93,10 @@ public class InventarioController {
         repo.save(ingredienteActual);
         return "redirect:/inventario/";
     }
+
+    @GetMapping("/eliminarIngrediente/{id}")
+    public String eliminarIngrediente(@PathVariable long id) {
+        repo.deleteById(id);
+        return "redirect:/inventario/";
+    }    
 }
