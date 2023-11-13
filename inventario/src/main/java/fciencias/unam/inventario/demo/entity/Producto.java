@@ -8,13 +8,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Getter
+
 public class Producto {
 
     /** Id del tipo de producto */
@@ -64,5 +63,74 @@ public class Producto {
     public String getNombreProducto(){
         return this.nombreProducto;
     }
+
+    public TipoProducto getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public float getCosto() {
+        return costo;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public LocalDate getFechaAdquision() {
+        return fechaAdquision;
+    }
+
+    public LocalDate getFechaCaducidad() {
+        return fechaCaducidad;
+    }
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
+
+    public void setCosto(float costo) {
+        this.costo = costo;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public void setFechaAdquision(LocalDate fechaAdquision) {
+        this.fechaAdquision = fechaAdquision;
+    }
+
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public void setTipoProducto(TipoProducto tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+    
     
 }

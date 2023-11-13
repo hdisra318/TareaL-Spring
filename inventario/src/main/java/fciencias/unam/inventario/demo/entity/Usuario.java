@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
 
 
+
 @Data
 @Entity
 public class Usuario {
@@ -38,5 +39,47 @@ public class Usuario {
     @NotNull(message = "El saldo del usuario es obligatorio")
     @Column(name = "saldo")
     public double saldo;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCurp() {
+        return curp;
+    }
+
+    public String getAMaterno() {
+        return aMaterno;
+    }
+
+    public String getAPaterno() {
+        return aPaterno;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCurp(String curp) {
+        this.curp = curp;
+    }
+
+    public void setAMaterno(String aMaterno) {
+        this.aMaterno = aMaterno;
+    }
+
+    public void setAPaterno(String aPaterno) {
+        this.aPaterno = aPaterno;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+
 
 }
