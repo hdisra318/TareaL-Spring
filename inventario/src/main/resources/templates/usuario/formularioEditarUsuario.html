@@ -18,12 +18,12 @@
     </header>
     <div layout:fragment="main-header">
     <main class="pt-4 pb-4">
-        <h1 class="text-center">Actualiza los datos del nuevo usuario</h1>
+        <h1 class="text-center">Actualiza los datos del usuario</h1>
 
     </div>   
     <div layout:fragment="main-content">
 
-        <form th:action="@{/usuario/formularioEditarUsuario/{id}}"  th:object="${usuario}" method="POST" class="mx-auto p-5 w-50">
+        <form th:action="@{/usuario/formularioEditarUsuario/__${id}__}"  th:object="${usuario}" method="POST" class="mx-auto p-5 w-50">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre" id="nombre" required

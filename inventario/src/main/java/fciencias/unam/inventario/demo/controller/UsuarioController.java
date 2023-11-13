@@ -40,12 +40,10 @@ public class UsuarioController {
 
         System.out.println(usuario);
         if (result.hasErrors()) {
-            // Manejar errores de validación, si es necesario
             return "usuario/formularioAgregarUsuario";
         }
 
         repo.save(usuario);
-        System.out.println("Agregado!!!");
         return "redirect:/usuario/";
     }
 
@@ -56,8 +54,29 @@ public class UsuarioController {
         Usuario usuario = repo.findById(id).orElse(null);
 
         model.addAttribute("usuario", usuario);
+        model.addAttribute("id", id);
 
-        return "usuario/formularioEditarUsuario/{id}";
+        return "usuario/formularioEditarUsuario";
+    }
+
+    @PostMapping("/formularioEditarUsuario/{id}")
+    public String procesandoEditarUsuario(@PathVariable long id, @Valid @ModelAttribute Usuario usuario, BindingResult result) {
+
+        System.out.println(usuario);
+        if (result.hasErrors()) {
+            return "usuario/formularioEditarUsuario";
+        }
+
+        // Actualizando los datos
+        Usuario usuarioActual = repo.findById(id).orElse(null);
+        usuarioActual.setCurp(usuario.getCurp());
+        usuarioActual.setNombre(usuario.getNombre());
+        usuarioActual.setAPaterno(usuario.getAPaterno());
+        usuarioActual.setAMaterno(usuario.getAMaterno());
+        usuarioActual.setSaldo(usuario.getSaldo());
+
+        repo.save(usuarioActual);
+        return "redirect:/usuario/";
     }
 
 }
