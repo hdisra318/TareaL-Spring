@@ -28,36 +28,36 @@ public class Producto {
 
     /** Stock del producto */
     @NotNull(message = "El stock del producto es obligatorio")
-    private int stock;
+    public int stock;
 
     /** Tipo del producto */
     @NotNull(message = "El stock del producto es obligatorio")
-    private TipoProducto tipoProducto;
+    public TipoProducto tipoProducto;
 
     /** Costo del producto */
     @NotNull(message = "El costo del producto es obligatorio")
-    private float costo;
+    public float costo;
 
     /** Fecha de Adquision del producto */
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaAdquision;
+    public LocalDate fechaAdquision;
 
     /** Fecha de Caducidad del producto */
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate fechaCaducidad;
+    public LocalDate fechaCaducidad;
 
     /** Nombre del proveedor */
     @NotNull(message = "El nombre del proveedor es obligatorio")
-    private String nombreProveedor;
+    public String nombreProveedor;
 
     /** Descripcion del producto */
     @NotNull(message = "La descripcion es obligatoria")
-    private String descripcion;
+    public String descripcion;
 
     /** Comentarios del producto */
-    private String comentarios;
+    public String comentarios;
 
 
     public String getNombreProducto(){
