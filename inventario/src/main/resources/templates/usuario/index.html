@@ -38,7 +38,7 @@
               <td th:text="${usuario.aMaterno}"></td>
               <td th:text="${usuario.saldo}"></td>
               <td>
-                <a class="btn btn-primary" th:href="@{/usuario/formularioEditarUsuario}">Editar usuario</a>
+                <a class="btn btn-primary" th:href="@{/usuario/formularioEditarUsuario/{id}(id=${usuario.id_usuario})}">Editar usuario</a>
               </td>
             </tr>
           </tbody>

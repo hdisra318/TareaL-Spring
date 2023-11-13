@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
@@ -48,9 +49,15 @@ public class UsuarioController {
         return "redirect:/usuario/";
     }
 
-    @GetMapping("/formularioEditarUsuario")
-    public String editarUsuario() {
-        return "usuario/formularioEditarUsuario";
+    @GetMapping("/formularioEditarUsuario/{id}")
+    public String editarUsuario(@PathVariable long id, Model model) {
+
+        // Obteniedo usuario
+        Usuario usuario = repo.findById(id).orElse(null);
+
+        model.addAttribute("usuario", usuario);
+
+        return "usuario/formularioEditarUsuario/{id}";
     }
 
 }
