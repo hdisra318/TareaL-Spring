@@ -21,8 +21,6 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/inventario")
 public class InventarioController {
-    
-    private InventarioService service;
 
     @Autowired
     private InventarioRepository repo;
@@ -33,48 +31,5 @@ public class InventarioController {
         List<Producto> ingredientes=repo.findAll();
         model.addAttribute("ingredientes",ingredientes);
         return "inventario/inventario";
-    }
-
-
-    @GetMapping("/formularioEditarIngrediente/{id}")
-    public String editarIngrediente(@PathVariable long id, Model model) {
-
-        // Obteniedo usuario
-        Producto ingrediente = repo.findById(id).orElse(null);
-
-        model.addAttribute("ingrediente", ingrediente);
-        model.addAttribute("id", id);
-
-        return "inventario/formularioEditarIngrediente";
-    }
-
-    @PostMapping("/formularioEditarIngrediente/{id}")
-    public String procesandoEditarIngrediente(@PathVariable long id, @Valid @ModelAttribute Producto ingrediente, BindingResult result) {
-
-        System.out.println(ingrediente);
-        if (result.hasErrors()) {
-            return "inventario/formularioEditarIngrediente";
-        }
-
-        // Actualizando los datos
-        Producto ingredienteActual = repo.findById(id).orElse(null);
-        ingredienteActual.setNombreProveedor(ingrediente.getNombreProveedor());
-        ingredienteActual.setNombreProducto(ingrediente.getNombreProducto());
-        ingredienteActual.setCosto(ingrediente.getCosto());
-        ingredienteActual.setStock(ingrediente.getStock());
-        ingredienteActual.setFechaAdquision(ingrediente.getFechaAdquision());
-        ingredienteActual.setFechaCaducidad(ingrediente.getFechaCaducidad());
-        ingredienteActual.setTipoProducto(ingrediente.getTipoProducto());
-        ingredienteActual.setDescripcion(ingrediente.getDescripcion());
-        ingredienteActual.setComentarios(ingrediente.getComentarios());
-
-        repo.save(ingredienteActual);
-        return "redirect:/inventario/";
-    }
-
-    @GetMapping("/eliminarIngrediente/{id}")
-    public String eliminarIngrediente(@PathVariable long id) {
-        repo.deleteById(id);
-        return "redirect:/inventario/";
-    }    
+    } 
 }

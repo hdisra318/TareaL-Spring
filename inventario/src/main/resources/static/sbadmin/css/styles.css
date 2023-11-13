@@ -52,6 +52,12 @@ h1{
     text-align: center;
 }
 
+.inventario-margen {
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 table{
     border-bottom:lightgrey  1px solid;
     border-left: lightgrey 1px solid;
