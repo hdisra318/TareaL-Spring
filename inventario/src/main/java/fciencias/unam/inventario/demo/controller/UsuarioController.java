@@ -22,6 +22,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository repo;
 
+    // READ
     @GetMapping("/")
     public String index(Model model) {
         List<Usuario> usuarios = repo.findAll();
@@ -29,6 +30,7 @@ public class UsuarioController {
         return "usuario/index";
     }
 
+    // CREATE
     @GetMapping("/formularioAgregarUsuario")
     public String agregarUsuario(Model model) {
         model.addAttribute("usuario", new Usuario());
@@ -47,6 +49,7 @@ public class UsuarioController {
         return "redirect:/usuario/";
     }
 
+    // UPDATE
     @GetMapping("/formularioEditarUsuario/{id}")
     public String editarUsuario(@PathVariable long id, Model model) {
 
@@ -79,6 +82,7 @@ public class UsuarioController {
         return "redirect:/usuario/";
     }
 
+    // DELETE
     @GetMapping("/eliminarUsuario/{id}")
     public String eliminarUsuario(@PathVariable long id) {
         repo.deleteById(id);
