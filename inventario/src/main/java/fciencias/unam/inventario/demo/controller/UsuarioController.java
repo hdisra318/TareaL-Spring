@@ -79,4 +79,10 @@ public class UsuarioController {
         return "redirect:/usuario/";
     }
 
+    @GetMapping("/eliminarUsuario/{id}")
+    public String eliminarUsuario(@PathVariable long id) {
+        repo.deleteById(id);
+        return "redirect:/usuario/";
+    }
+
 }
