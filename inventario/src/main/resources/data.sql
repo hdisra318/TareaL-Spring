@@ -1,14 +1,15 @@
-CREATE TABLE Usuario(
-    id SERIAL,
-    curp varchar(20),
-    aPaterno varchar(50),
-    aMaterno varchar(50),
-    saldo float
+CREATE TABLE IF NOT EXISTS Usuario(
+    id_usuario SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    curp VARCHAR(20) NOT NULL,
+    a_paterno VARCHAR(50) NOT NULL,
+    a_materno VARCHAR(50) NOT NULL,
+    saldo FLOAT NOT NULL
 );
 
 CREATE TABLE producto
 (
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     tipo_producto VARCHAR(100) NOT NULL,
     stock INTEGER NOT NULL,
