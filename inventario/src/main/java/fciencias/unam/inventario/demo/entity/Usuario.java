@@ -4,6 +4,7 @@ import lombok.Data;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
 
+
 @Data
 @Entity
 public class Usuario {

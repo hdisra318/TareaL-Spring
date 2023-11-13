@@ -8,11 +8,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Getter
 public class Producto {
 
     /** Id del tipo de producto */
@@ -23,7 +25,7 @@ public class Producto {
     /** Nombre del producto */
     @NotNull(message = "El nombre del producto es obligatorio")
     @Column(name = "nombre_producto", length = 50)
-    private String nombreProducto;
+    public String nombreProducto;
 
     /** Stock del producto */
     @NotNull(message = "El stock del producto es obligatorio")
