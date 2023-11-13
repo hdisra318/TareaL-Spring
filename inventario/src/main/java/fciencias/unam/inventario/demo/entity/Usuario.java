@@ -1,6 +1,7 @@
 package fciencias.unam.inventario.demo.entity;
 
 import lombok.Data;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.*;
 
@@ -38,6 +39,7 @@ public class Usuario {
     /** Saldo del usuario */
     @NotNull(message = "El saldo del usuario es obligatorio")
     @Column(name = "saldo")
+    @Min(0)
     public double saldo;
 
     public String getNombre() {
